@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /Users/dhruvmatlani/Desktop/NourishByEkta -type f '\\(' -name '*.html' -o -name '*.xml' -o -name '*.txt' '\\)' -exec sed -i '' 's|https://nourishbyekta.com|https://nourishbyekta.in|g' '{}' +)"
+    ]
+  }
+}

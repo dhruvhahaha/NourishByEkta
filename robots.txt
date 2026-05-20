@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://nourishbyekta.in/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 10
