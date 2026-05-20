@@ -12,8 +12,10 @@ const STORAGE_KEY = 'nbe_content';
 // No hardcoded password — uses Supabase Auth (email/password)
 let AUTH_TOKEN = null; // JWT token from Supabase Auth
 
-const SITE_HTML_PATH = '../index.html';
-const SITE_IMG_BASE  = '../images/';
+// Auto-detect: local dev (localhost/file) vs deployed (production domain)
+const IS_LOCAL = location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.protocol === 'file:';
+const SITE_HTML_PATH = IS_LOCAL ? '../index.html' : '/index.html';
+const SITE_IMG_BASE  = IS_LOCAL ? '../images/'    : '/images/';
 
 // ===========================
 // DEFAULT CONTENT
