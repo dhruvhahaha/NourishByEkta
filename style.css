@@ -1278,7 +1278,7 @@ a {
     padding-top: 24px;
     display: flex;
     justify-content: space-between;
-    color: var(--c-text-subtle);
+    color: var(--c-text-muted);
     font-size: 0.8rem;
 }
 
