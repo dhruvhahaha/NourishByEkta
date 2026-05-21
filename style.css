@@ -397,6 +397,8 @@ a {
     color: var(--c-accent);
     margin-bottom: 28px;
     will-change: opacity, transform;
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
 }
 
 .badge-dot {
@@ -433,6 +435,8 @@ a {
     max-width: 520px;
     margin-bottom: 36px;
     will-change: opacity, transform;
+    opacity: 0;
+    transform: translateY(20px);
 }
 
 .hero-cta-group {
@@ -442,11 +446,19 @@ a {
     margin-bottom: 48px;
 }
 
+.hero-cta-group .btn {
+    opacity: 0;
+    transform: translateY(20px);
+    will-change: opacity, transform;
+}
+
 .hero-stats {
     display: flex;
     align-items: center;
     gap: 32px;
     will-change: opacity, transform;
+    opacity: 0;
+    transform: translateY(20px);
 }
 
 .stat-item {
@@ -1104,6 +1116,9 @@ a {
     font-size: 0.9rem;
     color: var(--c-text-subtle);
     margin-top: 20px;
+    opacity: 0;
+    transform: translateY(10px);
+    will-change: opacity, transform;
 }
 
 .booking-note a {
