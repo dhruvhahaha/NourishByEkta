@@ -15,8 +15,8 @@
     --c-border-light: rgba(201, 104, 136, 0.09);
 
     --c-text: #2C1A24;
-    --c-text-muted: #7A566A;
-    --c-text-subtle: #B89AAA;
+    --c-text-muted: #6B4459;
+    --c-text-subtle: #8E6B7D;
 
     --c-accent: #C96888;
     --c-accent-rgb: 201, 104, 136;
@@ -1226,8 +1226,8 @@ a {
     max-width: 300px;
 }
 
-.footer-links h4,
-.footer-contact h4 {
+.footer-links h3,
+.footer-contact h3 {
     font-size: 0.85rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -2278,7 +2278,7 @@ body.has-sticky-cta {
     gap: 8px;
 }
 
-.rp-content h4 {
+.rp-content h3 {
     font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.12em;
@@ -2414,7 +2414,7 @@ body.has-sticky-cta {
     margin-bottom: 4px;
 }
 
-.philosophy-card h4 {
+.philosophy-card h3 {
     font-family: var(--f-serif);
     font-size: 1.05rem;
     font-weight: 600;
