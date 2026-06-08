@@ -64,8 +64,8 @@ const DEFAULTS = {
         { initial: "R", name: "Rohan M.", tag: "Chronic symptom reduction", text: "For 3 years I dealt with severe nausea, weight loss, and couldn't tolerate protein. Ekta helped me understand my triggers and her protocol drastically reduced all my symptoms. She is no less than a doctor." },
         { initial: "M", name: "Megha V.", tag: "Eliminated bloating & brain fog", text: "I had terrible bloating, brain fog, and crazy weight gain. Her detail-oriented plan never once made me feel like I was on a restrictive diet. I feel active and confident again — this journey has been amazing!" }
     ],
-    booking: { whatsapp: "919326752527", instagram: "https://www.instagram.com/nourishbyekta?igsh=aHd2YXBsYjNqNngy", facebook: "https://www.facebook.com/nourishbyekta" },
-    footer: { email: "nourishbyekta@gmail.com", phone: "+91 9326752527", copyright: "© 2026 Nourish By Ekta. All rights reserved." }
+    booking: { whatsapp: "919326538302", instagram: "https://www.instagram.com/nourishbyekta?igsh=aHd2YXBsYjNqNngy", facebook: "https://www.facebook.com/nourishbyekta" },
+    footer: { email: "nourishbyekta@gmail.com", phone: "+91 9326538302", copyright: "© 2026 Nourish By Ekta. All rights reserved." }
 };
 
 // ===========================
