@@ -438,7 +438,9 @@ function createCarousel(trackId, prevBtnId, nextBtnId, dotsId, itemSelector, vis
     }
 
     function getGap() {
-        return window.innerWidth > 768 ? 24 : 0;
+        if (!track) return 0;
+        const computed = parseFloat(window.getComputedStyle(track).gap);
+        return isNaN(computed) ? (window.innerWidth > 768 ? 24 : 0) : computed;
     }
 
     function getTotal() {

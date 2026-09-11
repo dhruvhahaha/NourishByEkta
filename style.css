@@ -2243,8 +2243,13 @@ a {
         max-width: 300px;
     }
 
-    .about-float-card {
+    .about-float-card-top {
+        display: none !important;
+    }
+
+    .about-float-card-bottom {
         position: absolute;
+        top: auto !important;
         right: 0;
         bottom: -12px;
         left: auto;
@@ -2329,7 +2334,16 @@ a {
         font-size: 0.95rem;
     }
 
+    .approach-track {
+        gap: 0;
+    }
+
     .approach-card {
+        flex: 0 0 100%;
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
         padding: 24px 20px;
         border-radius: var(--r-lg);
         display: flex;
@@ -3306,7 +3320,8 @@ a {
         gap: 40px;
     }
 
-    .about-float-card {
+    .about-float-card-bottom {
+        top: auto;
         right: auto;
         bottom: -16px;
         left: auto;
@@ -3452,7 +3467,8 @@ a {
         font-size: 0.95rem;
     }
 
-    .about-float-card {
+    .about-float-card-bottom {
+        top: auto;
         right: -8px;
         bottom: -16px;
         padding: 12px 16px;

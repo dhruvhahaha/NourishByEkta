@@ -2,62 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
-  <!-- Homepage -->
+  <!-- Homepage (Canonical) -->
   <url>
     <loc>https://nourishbyekta.in/</loc>
     <lastmod>2026-09-11</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://nourishbyekta.in/images/hero-food.webp</image:loc>
+      <image:title>Nourish By Ekta — Clinical Nutrition &amp; Gut Health</image:title>
+      <image:caption>Evidence-based nutrition coaching by Dt. Ekta Matlani</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://nourishbyekta.in/images/ekta-photo.webp</image:loc>
+      <image:title>Dietitian Ekta Matlani — Gut Health Nutritionist</image:title>
+      <image:caption>M.Sc ICMR-NIN, Monash Certified Low FODMAP, Certified Diabetes Educator</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nourishbyekta.in/images/meal-prep.webp</image:loc>
+      <image:title>Healthy Whole Food Meal Prep</image:title>
+      <image:caption>Personalized gut-healing whole-food nutrition plans</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://nourishbyekta.in/images/logo.webp</image:loc>
+      <image:title>Nourish By Ekta Logo</image:title>
     </image:image>
-  </url>
-
-  <!-- Section anchors (helps crawlers discover content) -->
-  <url>
-    <loc>https://nourishbyekta.in/#about</loc>
-    <lastmod>2026-09-11</lastmod>
-  </url>
-
-  <url>
-    <loc>https://nourishbyekta.in/#specializations</loc>
-    <lastmod>2026-09-11</lastmod>
-  </url>
-
-  <url>
-    <loc>https://nourishbyekta.in/#services</loc>
-    <lastmod>2026-09-11</lastmod>
-  </url>
-
-  <url>
-    <loc>https://nourishbyekta.in/#results</loc>
-    <lastmod>2026-09-11</lastmod>
-  </url>
-
-  <url>
-    <loc>https://nourishbyekta.in/#research</loc>
-    <lastmod>2026-09-11</lastmod>
-  </url>
-
-  <url>
-    <loc>https://nourishbyekta.in/#testimonials</loc>
-    <lastmod>2026-09-11</lastmod>
-  </url>
-
-  <url>
-    <loc>https://nourishbyekta.in/#booking</loc>
-    <lastmod>2026-09-11</lastmod>
-  </url>
-
-  <url>
-    <loc>https://nourishbyekta.in/#faq</loc>
-    <lastmod>2026-09-11</lastmod>
   </url>
 
 </urlset>
