@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
     <!-- Primary SEO -->
     <title>Dt. Ekta Matlani — Gut Health & Clinical Nutritionist · Nourish By Ekta</title>
@@ -63,7 +63,8 @@
     <meta property="og:profile:last_name" content="Matlani">
 
     <!-- Theme -->
-    <meta name="theme-color" content="#C96888">
+    <meta name="theme-color" content="#FAF0F4" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#FAF0F4">
 
     <!-- Resource Hints -->
     <link rel="dns-prefetch" href="https://codzpebogkhbgtgvudnu.supabase.co">
@@ -412,13 +413,14 @@
                 <a href="#testimonials" aria-label="Client testimonials">Reviews</a>
                 <a href="#booking" class="nav-cta" aria-label="Book a consultation now">Book Now</a>
             </div>
-            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
         </div>
     </nav>
+    <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
     </header>
 
     <main id="main-content">

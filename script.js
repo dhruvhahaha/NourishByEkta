@@ -326,19 +326,49 @@ function initNavigation() {
 
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
+    const navBackdrop = document.getElementById('navBackdrop');
     
+    function closeMobileMenu() {
+        if (!menuToggle || !navLinks) return;
+        menuToggle.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        navLinks.classList.remove('open');
+        if (navBackdrop) navBackdrop.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function openMobileMenu() {
+        if (!menuToggle || !navLinks) return;
+        menuToggle.classList.add('active');
+        menuToggle.setAttribute('aria-expanded', 'true');
+        navLinks.classList.add('open');
+        if (navBackdrop) navBackdrop.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
     if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            navLinks.classList.toggle('open');
-            document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+            const isOpen = navLinks.classList.contains('open');
+            if (isOpen) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        });
+
+        if (navBackdrop) {
+            navBackdrop.addEventListener('click', closeMobileMenu);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+                closeMobileMenu();
+            }
         });
 
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                navLinks.classList.remove('open');
-                document.body.style.overflow = '';
+                closeMobileMenu();
             });
         });
     }

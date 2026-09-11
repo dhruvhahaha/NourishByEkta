@@ -4,8 +4,8 @@
   "description": "Evidence-based nutrition consultations by Dietitian Ekta Matlani — gut health, IBS, PCOS, thyroid & weight management.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#FDF5F8",
-  "theme_color": "#C96888",
+  "background_color": "#FAF0F4",
+  "theme_color": "#FAF0F4",
   "orientation": "portrait-primary",
   "lang": "en-IN",
   "icons": [

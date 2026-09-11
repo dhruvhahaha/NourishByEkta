@@ -81,6 +81,10 @@ html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 body {
@@ -98,15 +102,24 @@ body {
     background-attachment: fixed;
     font-optical-sizing: auto;
     overflow-x: hidden;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+a, button, input, select, textarea, summary, [role="button"] {
+    -webkit-tap-highlight-color: transparent;
 }
 
 /* ---------- Page Loader / Preloader Screen ---------- */
 .page-loader {
     position: fixed;
+    inset: 0;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+    height: 100dvh;
     z-index: 999999;
     display: flex;
     align-items: center;
@@ -269,6 +282,7 @@ body {
 
 img {
     max-width: 100%;
+    height: auto;
     display: block;
 }
 
@@ -525,6 +539,28 @@ a {
     z-index: 1001;
 }
 
+.nav-backdrop {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    height: 100dvh;
+    background: rgba(44, 26, 36, 0.45);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.nav-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
 
 .menu-toggle span {
     width: 24px;
@@ -711,6 +747,7 @@ a {
     border-radius: var(--r-full);
     padding: 6px 18px 6px 8px;
     width: fit-content;
+    max-width: 100%;
     box-shadow: 0 2px 10px rgba(201, 104, 136, 0.06);
 }
 
@@ -1249,6 +1286,7 @@ a {
     gap: 24px;
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     will-change: transform;
+    touch-action: pan-y;
 }
 
 
@@ -1371,6 +1409,7 @@ a {
     gap: 24px;
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     will-change: transform;
+    touch-action: pan-y;
 }
 
 
@@ -2002,6 +2041,7 @@ a {
     body {
         -webkit-tap-highlight-color: transparent;
         -webkit-text-size-adjust: 100%;
+        background-attachment: scroll !important;
     }
 
     .container {
@@ -2027,26 +2067,32 @@ a {
         font-size: 0.95rem;
     }
 
+    .hero-social-proof {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+    }
+
     /* Mobile Nav Drawer */
     .nav-links {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 85%;
-        max-width: 320px;
-        height: 100vh;
+        width: min(85vw, 320px);
+        height: 100%;
         height: 100dvh; /* dynamic viewport height for mobile browsers */
         background: rgba(253, 245, 248, 0.98);
         backdrop-filter: blur(24px);
         -webkit-backdrop-filter: blur(24px);
         box-shadow: -8px 0 32px rgba(201, 104, 136, 0.12);
         flex-direction: column;
-        padding: 100px 28px 40px;
+        padding: max(88px, calc(68px + env(safe-area-inset-top, 0px))) 24px max(36px, calc(24px + env(safe-area-inset-bottom, 0px)));
         gap: 8px;
-        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: right 0.38s cubic-bezier(0.4, 0, 0.2, 1);
         border-left: 1px solid var(--c-border);
         z-index: 1000;
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .nav-links.open {
@@ -2074,8 +2120,8 @@ a {
 
     .menu-toggle {
         display: flex;
-        min-width: 44px;
-        min-height: 44px;
+        min-width: 48px;
+        min-height: 48px;
         align-items: center;
         justify-content: center;
     }
@@ -2146,6 +2192,9 @@ a {
         flex: 1;
         text-align: center;
         align-items: center;
+        min-width: 0;
+        word-break: break-word;
+        overflow-wrap: break-word;
     }
 
     .stat-number {
@@ -2196,12 +2245,13 @@ a {
 
     .about-float-card {
         position: absolute;
-        right: -10px;
-        bottom: -16px;
+        right: 0;
+        bottom: -12px;
         left: auto;
         margin-top: 0;
         margin-left: 0;
         margin-right: 0;
+        max-width: calc(100% - 16px);
         z-index: 5;
     }
 
@@ -3333,9 +3383,19 @@ a {
 
     .booking-features {
         flex-direction: column;
-        gap: 12px;
-        align-items: flex-start;
-        padding-left: 16px;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+        padding-left: 0;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto 28px;
+    }
+
+    .booking-feature {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 10px 16px;
     }
 
     /* Footer */
@@ -3586,16 +3646,16 @@ body {
 
 .hero-title {
   font-family: var(--f-serif);
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  line-height: 1.05;
+  font-size: clamp(1.65rem, 6.2vw, 3.8rem);
+  line-height: 1.15;
   letter-spacing: -0.02em; /* Negative tracking for large display */
   font-weight: 700;
 }
 
 .section-title {
   font-family: var(--f-serif);
-  font-size: clamp(2rem, 5vw, 3rem);
-  line-height: 1.15;
+  font-size: clamp(1.35rem, 4.5vw, 2.6rem);
+  line-height: 1.2;
   letter-spacing: -0.015em;
   font-weight: 600;
 }
@@ -3834,5 +3894,102 @@ body {
   .service-card, .spec-card, .testimonial-card, .philosophy-card, .approach-card, .result-card, .card-base {
     border: 2px solid var(--c-text) !important;
     background: var(--c-bg-card) !important;
+  }
+}
+
+/* 10. COMPACT & FOLDABLE ANDROID DEVICES (<= 380px) */
+@media (max-width: 380px) {
+  .container {
+    padding: 0 12px !important;
+  }
+  .hero {
+    padding: 96px 12px 28px !important;
+    gap: 16px !important;
+  }
+  .hero-badge {
+    font-size: 0.65rem !important;
+    padding: 5px 12px !important;
+  }
+  .hero-social-proof {
+    padding: 5px 10px 5px 6px !important;
+    gap: 8px !important;
+  }
+  .avatar-pill {
+    width: 26px !important;
+    height: 26px !important;
+    font-size: 0.62rem !important;
+    margin-left: -6px !important;
+  }
+  .proof-label {
+    font-size: 0.72rem !important;
+  }
+  .hero-stats {
+    padding: 14px 6px !important;
+  }
+  .stat-number, .stat-suffix {
+    font-size: 1.25rem !important;
+  }
+  .stat-label {
+    font-size: 0.62rem !important;
+  }
+  .quick-facts {
+    padding: 20px 12px !important;
+    margin: 28px auto 40px !important;
+  }
+  .qf-item {
+    padding: 14px 12px !important;
+    gap: 10px !important;
+  }
+  .qf-icon-wrap {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  .qf-val {
+    font-size: 0.95rem !important;
+  }
+  .service-card {
+    padding: 20px 14px !important;
+  }
+  .spec-card {
+    padding: 20px 14px !important;
+  }
+  .booking-card {
+    padding: 26px 14px !important;
+  }
+  .booking-title {
+    font-size: 1.35rem !important;
+  }
+  .booking-feature {
+    font-size: 0.82rem !important;
+    padding: 8px 12px !important;
+  }
+  .milestone-item {
+    padding: 14px 12px !important;
+    gap: 10px !important;
+  }
+  .milestone-rank {
+    width: 46px !important;
+    min-width: 46px !important;
+    height: 44px !important;
+    font-size: 0.88rem !important;
+  }
+  .about-float-card {
+    padding: 10px 12px !important;
+  }
+}
+
+/* 11. ENHANCED SAFE AREA INSETS FOR MODERN ANDROID NOTCHES & GESTURE BARS */
+@supports (padding: max(0px)) {
+  body {
+    padding-left: env(safe-area-inset-left, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
+  }
+  .navbar {
+    padding-left: env(safe-area-inset-left, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
+  }
+  .whatsapp-fab {
+    bottom: max(24px, calc(16px + env(safe-area-inset-bottom, 0px)));
+    right: max(20px, calc(16px + env(safe-area-inset-right, 0px)));
   }
 }
