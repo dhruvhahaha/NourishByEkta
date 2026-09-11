@@ -1,49 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
   <!-- Homepage -->
   <url>
     <loc>https://nourishbyekta.in/</loc>
-    <lastmod>2026-04-15</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://nourishbyekta.in/images/hero-food.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://nourishbyekta.in/images/ekta-photo.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://nourishbyekta.in/images/logo.webp</image:loc>
+    </image:image>
   </url>
 
   <!-- Section anchors (helps crawlers discover content) -->
   <url>
     <loc>https://nourishbyekta.in/#about</loc>
-    <lastmod>2026-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-09-11</lastmod>
   </url>
 
   <url>
     <loc>https://nourishbyekta.in/#specializations</loc>
-    <lastmod>2026-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-09-11</lastmod>
   </url>
 
   <url>
     <loc>https://nourishbyekta.in/#services</loc>
-    <lastmod>2026-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+
+  <url>
+    <loc>https://nourishbyekta.in/#results</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+
+  <url>
+    <loc>https://nourishbyekta.in/#research</loc>
+    <lastmod>2026-09-11</lastmod>
   </url>
 
   <url>
     <loc>https://nourishbyekta.in/#testimonials</loc>
-    <lastmod>2026-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-09-11</lastmod>
   </url>
 
   <url>
     <loc>https://nourishbyekta.in/#booking</loc>
-    <lastmod>2026-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+
+  <url>
+    <loc>https://nourishbyekta.in/#faq</loc>
+    <lastmod>2026-09-11</lastmod>
   </url>
 
 </urlset>

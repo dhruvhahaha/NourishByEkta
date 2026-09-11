@@ -461,8 +461,9 @@
     min-height: 90vh;
 }
 
-/* Disable sticky mobile CTA in admin */
-.site-container .mobile-sticky-cta { display: none !important; }
+/* Disable sticky mobile CTA and page loader in admin */
+.site-container .mobile-sticky-cta,
+.page-loader { display: none !important; }
 
 /* Prevent links from navigating in edit mode */
 .site-container a { pointer-events: auto; }

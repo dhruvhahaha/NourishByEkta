@@ -1,6 +1,11 @@
-# Exclude Supabase configuration file containing credentials
-supabase-config.js
+# Exclude Supabase configuration files containing credentials across all directories
+**/supabase-config.js
 .DS_Store
 
 # Local Netlify folder
-.netlify
+.netlify/
+
+# Local developer & CLI artifacts
+.agents/
+.claude/
+skills-lock.json
