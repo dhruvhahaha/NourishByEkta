@@ -1,4 +1,20 @@
+# Search engines and AI assistants are welcome to read and cite this site.
 User-agent: *
+Allow: /
+Disallow: /admin/
+
+# AI search / answer engines (ChatGPT, Claude, Gemini, Perplexity, Copilot)
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: Google-Extended
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Bingbot
+User-agent: Applebot-Extended
 Allow: /
 Disallow: /admin/
 
