@@ -3,8 +3,8 @@
 // ================================================
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 0. Page Loader Screen
-  initPageLoader();
+  // 0. Hero entrance
+  initHeroEntrance();
 
   // 1. CMS Content
   initCMS();
@@ -26,108 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // 7. WhatsApp FAB
   initWhatsAppFAB();
+
+  // 8. Booking Form
+  initBookingForm();
 });
-
-// ================================================
-// 0. Page Loader / Preloader
-// ================================================
-function initPageLoader() {
-    const loader = document.getElementById('page-loader');
-    if (!loader) {
-        initHeroEntrance();
-        return;
-    }
-
-    const progressBar = document.getElementById('loaderProgressBar');
-    const statusText = document.getElementById('loaderStatusText');
-
-    let progress = 0;
-    let isReady = false;
-    const startTime = Date.now();
-    const minDisplayTime = 850; // smooth minimum duration for luxury feel
-
-    const statusMessages = [
-        'Preparing clinical nutrition care...',
-        'Personalizing your wellness experience...',
-        'Rooted in science, crafted for you...',
-        'Welcome to Nourish By Ekta'
-    ];
-    let msgIndex = 0;
-
-    const progressInterval = setInterval(() => {
-        if (!isReady) {
-            // Simulated smooth progress ramp-up while loading
-            if (progress < 45) {
-                progress += Math.floor(Math.random() * 10) + 8;
-            } else if (progress < 78) {
-                progress += Math.floor(Math.random() * 5) + 3;
-            } else if (progress < 92) {
-                progress += 1;
-            }
-        } else {
-            // Assets ready, accelerate smoothly to 100%
-            progress += 16;
-            if (progress >= 100) {
-                progress = 100;
-                clearInterval(progressInterval);
-                finishLoading();
-            }
-        }
-
-        if (progressBar) {
-            progressBar.style.width = Math.min(progress, 100) + '%';
-        }
-
-        if (statusText && progress > 50 && msgIndex === 0) {
-            msgIndex = 1;
-            statusText.style.opacity = '0';
-            setTimeout(() => {
-                if (statusText) {
-                    statusText.textContent = statusMessages[1];
-                    statusText.style.opacity = '0.9';
-                }
-            }, 180);
-        }
-    }, 50);
-
-    function finishLoading() {
-        if (statusText) {
-            statusText.textContent = 'Welcome to Nourish By Ekta';
-            statusText.style.opacity = '1';
-        }
-
-        setTimeout(() => {
-            loader.classList.add('loaded');
-            // Trigger hero entrance after loader starts dissolving
-            setTimeout(() => {
-                initHeroEntrance();
-                // Remove from rendering tree once opacity transition finishes
-                setTimeout(() => {
-                    loader.style.display = 'none';
-                }, 750);
-            }, 180);
-        }, 200);
-    }
-
-    function markReady() {
-        const elapsed = Date.now() - startTime;
-        const remainingTime = Math.max(0, minDisplayTime - elapsed);
-        setTimeout(() => {
-            isReady = true;
-        }, remainingTime);
-    }
-
-    if (document.readyState === 'complete') {
-        markReady();
-    } else {
-        window.addEventListener('load', markReady, { once: true });
-    }
-
-    // Safety fallback timeout
-    setTimeout(() => {
-        isReady = true;
-    }, 2200);
-}
 
 // ================================================
 // 1. CMS Content
@@ -619,4 +521,78 @@ function initWhatsAppFAB() {
             fab.classList.remove('visible');
         }
     }, { passive: true });
+}
+
+// ================================================
+// 9. Booking Form — qualifies the enquiry, then opens WhatsApp
+// ================================================
+function initBookingForm() {
+    const form = document.getElementById('bookingForm');
+    if (!form) return;
+
+    const planSelect = document.getElementById('bfPlan');
+    const errorEl = document.getElementById('bfError');
+
+    // Program buttons preselect the plan in the form
+    document.querySelectorAll('a[data-plan]').forEach(link => {
+        link.addEventListener('click', () => {
+            if (planSelect) planSelect.value = link.dataset.plan;
+        });
+    });
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const required = [...form.querySelectorAll('[required]')];
+        let firstInvalid = null;
+        required.forEach(field => {
+            const empty = field.type === 'checkbox' ? !field.checked : !field.value.trim();
+            field.classList.toggle('bf-invalid', empty);
+            field.setAttribute('aria-invalid', empty ? 'true' : 'false');
+            if (empty && !firstInvalid) firstInvalid = field;
+        });
+        if (firstInvalid) {
+            if (errorEl) errorEl.hidden = false;
+            firstInvalid.focus();
+            return;
+        }
+        if (errorEl) errorEl.hidden = true;
+
+        const val = (name) => (form.elements[name]?.value || '').trim();
+        const lines = [
+            "Hi Ekta! I'd like to book a consultation.",
+            '',
+            `Name: ${val('name')}`,
+            val('city') && `City: ${val('city')}`,
+            `Concern: ${val('concern')}`,
+            `Since: ${val('duration')}`,
+            val('reports') && `Diagnosis/reports: ${val('reports')}`,
+            `Program: ${val('plan')}`,
+            val('note') && `Note: ${val('note')}`
+        ].filter(Boolean);
+        lines.splice(1, 0, '');
+
+        // Use the number the CMS may have updated on the page
+        const fab = document.querySelector('.whatsapp-fab');
+        const number = (fab && (fab.href.match(/wa\.me\/(\d+)/) || [])[1]) || '919326538302';
+        const url = `https://wa.me/${number}?text=${encodeURIComponent(lines.join('\n'))}`;
+
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', 'generate_lead', { concern: val('concern'), program: val('plan') });
+        }
+
+        const win = window.open(url, '_blank', 'noopener');
+        if (!win) window.location.href = url;
+    });
+
+    form.addEventListener('input', (e) => {
+        if (e.target.classList.contains('bf-invalid')) {
+            const filled = e.target.type === 'checkbox' ? e.target.checked : e.target.value.trim();
+            if (filled) {
+                e.target.classList.remove('bf-invalid');
+                e.target.setAttribute('aria-invalid', 'false');
+            }
+        }
+        if (errorEl && !form.querySelector('.bf-invalid')) errorEl.hidden = true;
+    });
 }
